@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import os
 from pathlib import Path
+from loader import load_documents
 
 from dotenv import load_dotenv
 from langchain_community.document_loaders import PyPDFLoader
@@ -14,7 +15,7 @@ from langchain_core.prompts import ChatPromptTemplate
 from langchain_openai import ChatOpenAI, OpenAIEmbeddings
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 
-
+docs = load_documents("data")
 ROOT_DIR = Path(__file__).resolve().parent
 DEFAULT_PDF_PATH = ROOT_DIR / "data" / "sample.pdf"
 DEFAULT_INDEX_DIR = ROOT_DIR / "data" / "faiss_index"
