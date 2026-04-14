@@ -14,6 +14,12 @@ from langchain_core.output_parsers import StrOutputParser
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_openai import ChatOpenAI, OpenAIEmbeddings
 from langchain_text_splitters import RecursiveCharacterTextSplitter
+from loader import load_documents
+from splitter import split_documents
+
+docs = load_documents("data")
+
+chunks = split_documents(docs)
 
 docs = load_documents("data")
 ROOT_DIR = Path(__file__).resolve().parent
