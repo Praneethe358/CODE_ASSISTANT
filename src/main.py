@@ -4,8 +4,6 @@ from __future__ import annotations
 
 import os
 from pathlib import Path
-from loader import load_documents
-
 from dotenv import load_dotenv
 from langchain_community.document_loaders import PyPDFLoader
 from langchain_community.vectorstores import FAISS
@@ -16,6 +14,14 @@ from langchain_openai import ChatOpenAI, OpenAIEmbeddings
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 from loader import load_documents
 from splitter import split_documents
+from loader import load_documents
+from splitter import split_documents
+from embeddings import create_vectorstore
+
+docs = load_documents("data")
+chunks = split_documents(docs)
+
+vectorstore = create_vectorstore(chunks)
 
 docs = load_documents("data")
 
